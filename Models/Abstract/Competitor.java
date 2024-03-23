@@ -1,14 +1,16 @@
 package Models.Abstract;
 
+import Models.Speedway;
+
 /**
  * Abstract class Competitor implements Runnable interface.
  * This class represents a competitor in the race.
  */
-abstract public class Competitor implements Runnable {
+abstract public class Competitor extends Speedway implements Runnable, Comparable<Competitor> {
   // Attributes
   public String name; // Name of the competitor
   protected int position; // Current position of the competitor in the race
-
+  public boolean finished;
   /**
    * Constructor for Competitor class.
    *
@@ -16,7 +18,8 @@ abstract public class Competitor implements Runnable {
    */
   public Competitor(String name) {
     this.name = name;
-    position = 0; // Initialize position to 0 at the start of the race
+    position = 1; // Initialize position to 0 at the start of the race
+    finished = false;
   }
 
   /**
