@@ -11,6 +11,8 @@ public class Car extends Competitor {
   public int year; // Year of manufacture of the car
   public int acceleration; // Acceleration of the car (not yet implemented)
 
+  private int traveledDistance; // Distance traveled by the car
+
   /**
    * Constructor for Car class.
    *
@@ -33,8 +35,7 @@ public class Car extends Competitor {
    */
   @Override
   public void run() {
-    System.out.println(super.name + " is running...");
-    while (super.position < Models.Speedway.getLength()) {
+    while (this.traveledDistance < Models.Speedway.getLength()) {
       updatePosition();
 
       try {
@@ -44,6 +45,8 @@ public class Car extends Competitor {
         System.out.println("Error in thread sleep: " + e.getMessage());
       }
     }
+    finished = true;
+  }
 
     // Finish the race, adding to the winners list
     Speedway.addWinner(this);
@@ -60,15 +63,15 @@ public class Car extends Competitor {
 
     if (trapActioned) {
       try {
-        System.out.println(super.name + " fell into the trap!");
+        System.out.println("\r\n" + super.name + " fell into the trap!");
+        position++;
         Thread.sleep(Trap.TRAP_DURATION_MS);
       } catch (InterruptedException e) {
         e.printStackTrace();
         System.out.println("Error in thread sleep on TRAP: " + e.getMessage());
       }
     }
-    position += 1;
-    System.out.println("Position of " + super.name + " is " + super.position);
+    this.traveledDistance += Speedway.distanceBetweenIntervals;
   }
 
   /**
