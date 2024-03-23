@@ -51,26 +51,7 @@ public class Speedway {
         e.printStackTrace();
       }
     }
-  }
-
-  /**
-   * Adds a competitor to the list of winners.
-   *
-   * @param competitor The competitor to add to the list of winners.
-   */
-  public static void addWinner(Competitor competitor) {
-    winners.add(competitor);
-  }
-
-  /**
-   * Displays the list of winners.
-   */
-  public static void showWinners() {
-    System.out.println("\r\n========== WINNERS ==========");
-    for (Competitor winner : winners) {
-      System.out.println(winner.name);
-    }
-    System.out.println("========== END WINNERS ==========");
+    System.out.println("\r\n========== END RACER ==========");
   }
 
   /**
@@ -90,9 +71,5 @@ public class Speedway {
 
   public static ArrayList<Competitor> getCompetitors() {
     return competitors;
-  }
-
-  public static ArrayList<Competitor> getWinners() {
-    return winners;
   }
 }
