@@ -1,6 +1,7 @@
 package Models;
 
 import java.util.ArrayList;
+
 import Models.Abstract.Competitor;
 
 /**
@@ -11,10 +12,14 @@ public class Speedway {
   public static final int DELAY_MS_BETWEEN_POSITIONS_UPDATE = 1000; // Delay between position updates
 
   // Attributes
-  private static ArrayList<Competitor> competitors; // List of competitors in the race
-  private static int length; // Length of the speedway
-  private static ArrayList<Thread> threads; // Threads for each competitor
-  private static ArrayList<Competitor> winners; // List of winners
+  protected static ArrayList<Competitor> competitors; // List of competitors in the race
+  protected static ArrayList<Thread> threads; // Threads for each competitor
+  private static Thread showPositionsOfRunnersThread; // Thread to show positions
+  protected static boolean raceFinished;
+
+  protected static int length; // Length of the speedway
+
+  public static float distanceBetweenIntervals;
 
   /**
    * Constructor for Speedway class.
