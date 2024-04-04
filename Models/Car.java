@@ -45,7 +45,7 @@ public class Car extends Competitor {
         System.out.println("Error in thread sleep: " + e.getMessage());
       }
     }
-    finished = true;
+    finish();
   }
 
     // Finish the race, adding to the winners list
@@ -72,6 +72,11 @@ public class Car extends Competitor {
       }
     }
     this.traveledDistance += Speedway.distanceBetweenIntervals;
+  }
+
+  @Override
+  protected synchronized void finish() {
+    winners.add(this);
   }
 
   /**
