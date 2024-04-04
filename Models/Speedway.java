@@ -14,7 +14,6 @@ public class Speedway {
   // Attributes
   protected static ArrayList<Competitor> competitors; // List of competitors in the race
   protected static ArrayList<Thread> threads; // Threads for each competitor
-  private static Thread showPositionsOfRunnersThread; // Thread to show positions
   protected static boolean raceFinished;
 
   protected static int length; // Length of the speedway
@@ -63,14 +62,17 @@ public class Speedway {
         e.printStackTrace();
       }
     }
-    System.out.println("\r\n========== END RACER ==========");
   }
 
   /**
    * Creates a new thread for each competitor.
    */
   private void createThreads() {
-    threads = new ArrayList<Thread>();
+    // Thread to show positions of racers
+    Thread displayPositions;
+    displayPositions = new Thread(new Displays());
+    threads.add(displayPositions);
+
     for (Competitor competitor : competitors) {
       threads.add(new Thread(competitor));
     }
