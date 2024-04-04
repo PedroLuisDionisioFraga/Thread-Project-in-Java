@@ -17,8 +17,7 @@ class Main {
         new Car("Camaro 2.0 Turbo", "Chevrolet", 2018)
     ));
 
-    // Create speedway
-    Speedway speedway = new Models.Speedway(10, competitors);
+    Speedway speedway = new Speedway(10, competitors, 5);
 
     speedway.startRace();
   }

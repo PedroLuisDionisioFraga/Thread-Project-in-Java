@@ -27,12 +27,19 @@ public class Speedway {
    * @param length      Length of the speedway.
    * @param competitors List of competitors in the race.
    */
-  public Speedway(int length, ArrayList<Competitor> competitors) {
+  public Speedway(int length, ArrayList<Competitor> competitors, int displayIntervals) {
+    // Attribution
     Speedway.length = length;
     Speedway.competitors = competitors;
+    Speedway.distanceBetweenIntervals = (float) length / displayIntervals;
+    // Initialization
+    Speedway.raceFinished = false;
+    Speedway.lapNumber = 0;
+    // Instancies creation
+    threads = new ArrayList<Thread>();
     winners = new ArrayList<Competitor>();
-
-    createThreads(); // Create a new thread for each competitor
+    // Preparing competitors threads
+    createThreads();
   }
 
   /**
