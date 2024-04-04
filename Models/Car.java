@@ -46,6 +46,10 @@ public class Car extends Competitor {
         e.printStackTrace();
         System.out.println("Error in thread sleep: " + e.getMessage());
       }
+      // WHY THIS FUCKING PRINT IS NECESSARY TO DO THE PROJECT WORK?
+      // If remove, the addiction of this car in winners array list can has error
+      // TODO: Study why it happen and solve
+      System.out.println("Already run the " + this.name);
     }
     finish();
   }
