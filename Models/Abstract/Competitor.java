@@ -11,6 +11,7 @@ abstract public class Competitor extends Speedway implements Runnable, Comparabl
   public String name; // Name of the competitor
   protected int position; // Current position of the competitor in the race
   public boolean finished;
+
   /**
    * Constructor for Competitor class.
    *
@@ -18,8 +19,8 @@ abstract public class Competitor extends Speedway implements Runnable, Comparabl
    */
   public Competitor(String name) {
     this.name = name;
-    position = 1; // Initialize position to 0 at the start of the race
-    finished = false;
+    this.position = 1; // Initialize position to 0 at the start of the race
+    this.finished = false;
   }
 
   /**
@@ -38,11 +39,20 @@ abstract public class Competitor extends Speedway implements Runnable, Comparabl
   abstract protected void updatePosition();
 
   /**
+   * Abstract method is the last that is called when
+   * the competitor finishes the thread.
+   *
+   * The implementation should handle any
+   * cleanup or feature of finalization.
+   */
+  abstract protected void finish();
+
+  /**
    * Getter for the position of the competitor.
    *
    * @return The current position of the competitor.
    */
   public int getPosition() {
-    return position;
+    return this.position;
   }
 }
