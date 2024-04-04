@@ -50,8 +50,9 @@ public class Car extends Competitor {
     finish();
   }
 
-    // Finish the race, adding to the winners list
-    Speedway.addWinner(this);
+  @Override
+  public int compareTo(Competitor o) {
+    return Integer.compare(this.position, o.getPosition());
   }
 
   /**

@@ -38,8 +38,8 @@ public class Displays extends Speedway implements Runnable {
    */
   private static void showWinners() {
     System.out.println("\r\n========== WINNERS ==========");
-    Collections.sort(competitors);
-    for (Competitor winner : competitors) {
+    Collections.sort(winners);
+    for (Competitor winner : winners) {
       System.out.println("The " + winner.name + " win in position " + winner.getPosition());
     }
     System.out.println("========== END WINNERS ==========");
