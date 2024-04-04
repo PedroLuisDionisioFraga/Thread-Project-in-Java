@@ -32,6 +32,8 @@ public class Car extends Competitor {
    * The car continues to run until it reaches the end of the Speedway.
    * If the car falls into a trap, it waits for a certain duration before
    * continuing.
+   * 
+   * @throws InterruptedException
    */
   @Override
   public void run() {
