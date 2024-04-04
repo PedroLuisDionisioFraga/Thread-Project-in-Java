@@ -6,8 +6,6 @@ import java.util.Arrays;
 
 class Main {
   public static void main(String[] args) {
-    System.out.println("========== START RACER ==========\r\n");
-
     // Create competitors
     ArrayList<Competitor> competitors = new ArrayList<>(Arrays.asList(
         new Car("Golf GTR 2.0 Turbo", "Volkswagen", 2024),
@@ -22,12 +20,6 @@ class Main {
     // Create speedway
     Speedway speedway = new Models.Speedway(10, competitors);
 
-    // Start
     speedway.startRace();
-
-    System.out.println("========== END RACER ==========\r\n");
-
-    // Print winners
-    Speedway.showWinners();
   }
 }
