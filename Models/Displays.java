@@ -8,17 +8,9 @@ public class Displays extends Speedway implements Runnable {
 
   @Override
   public void run() {
-    // Distance traveled by the competitors
-    boolean lastCompetitorFinished = false;
-    boolean actualCompetitorFinished;
-
-    while (!raceFinished) {
-      // TODO: This fucking logic is crap, `show Positions` is being called three times more than it should, but this logic is better than I can do so far
-      for (Competitor competitor : competitors) {
-        actualCompetitorFinished = competitor.finished;
-        raceFinished = lastCompetitorFinished && actualCompetitorFinished;
-        lastCompetitorFinished = actualCompetitorFinished;
-      }
+    Displays.printStartCompetition();
+    do {
+      Speedway.lapNumber++;
 
       showPositions();
 
@@ -28,9 +20,10 @@ public class Displays extends Speedway implements Runnable {
         System.out.println("Thread to show positions interrupted");
         break;
       }
-    }
+    } while (winners.size() < competitors.size());
 
     showWinners();
+    Displays.printEndCompetition();
   }
 
   /**
@@ -53,4 +46,12 @@ public class Displays extends Speedway implements Runnable {
     System.out.println("========== END POSITIONS ==========");
   }
 
+  private static void printStartCompetition() {
+    System.out.println("========== START RACER ==========");
+  }
+
+  private static void printEndCompetition() {
+    System.out.println("\r\n========== END RACER ==========");
+
+  }
 }
