@@ -37,7 +37,7 @@ public class Car extends Competitor {
    */
   @Override
   public void run() {
-    while (this.traveledDistance < Models.Speedway.getLength()) {
+    while (this.traveledDistance < Speedway.getLength()) {
       updatePosition();
 
       try {
@@ -60,13 +60,13 @@ public class Car extends Competitor {
    * its position.
    */
   @Override
-  protected synchronized void updatePosition() {
+  protected void updatePosition() {
     boolean trapActioned = Trap.fellIntoTheTrap();
 
     if (trapActioned) {
       try {
         System.out.println("\r\n" + super.name + " fell into the trap!");
-        position++;
+        this.position++;
         Thread.sleep(Trap.TRAP_DURATION_MS);
       } catch (InterruptedException e) {
         e.printStackTrace();
