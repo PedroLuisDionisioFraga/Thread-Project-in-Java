@@ -23,6 +23,19 @@ public class Speedway {
   /**
    * Constructor for Speedway class.
    *
+   * To be used to permit polymorphism
+   */
+  public Speedway() {
+    Speedway.raceFinished = false;
+    Speedway.lapNumber = 0;
+
+    threads = new ArrayList<Thread>();
+    winners = new ArrayList<Competitor>();
+  }
+
+  /**
+   * Constructor for Speedway class.
+   *
    * @param length      Length of the speedway.
    * @param competitors List of competitors in the race.
    */
