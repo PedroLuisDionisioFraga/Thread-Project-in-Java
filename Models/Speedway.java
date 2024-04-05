@@ -13,12 +13,14 @@ public class Speedway {
 
   // Attributes
   protected static ArrayList<Competitor> competitors; // List of competitors in the race
+  protected static ArrayList<Competitor> winners;
   protected static ArrayList<Thread> threads; // Threads for each competitor
   protected static boolean raceFinished;
 
   protected static int length; // Length of the speedway
 
   public static float distanceBetweenIntervals;
+  public static int lapNumber;
 
   /**
    * Constructor for Speedway class.
